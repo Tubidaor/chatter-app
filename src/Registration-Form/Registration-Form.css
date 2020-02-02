@@ -1,0 +1,31 @@
+form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  opacity: .9;
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+
+legend {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+fieldset {
+  border: none;
+  text-align: center;
+
+}
+
+label {
+  display: inline-block; 
+  clear: left; 
+  width: 90px; 
+  margin:6px; 
+  text-align: left; 
+}

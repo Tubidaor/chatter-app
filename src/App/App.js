@@ -19,7 +19,7 @@ function App() {
             component={Mainpage}
           />
         </Switch>
-        <Dinos numberOfBubbles={100}/>
+        
       </main>
 
     </div>

@@ -5,8 +5,9 @@
   width: 100%;
   max-width: 100rem;
   transform: translateX(-30%);
-	opacity: 0.7;
-	overflow: visible;
+	opacity: 0.9;
+  overflow: visible;
+  z-index: -1;
 }
 
 .bubbles {
@@ -18,14 +19,6 @@ image {
   height: 60px;
 }
 
-/* .bubbles > g > g:nth-of-type(3n) image {
-  stroke: #87f5fb;
-}
-
-.bubbles > g > g:nth-of-type(4n) image {
-  stroke: #8be8cb;
-} */
-
 .bubbles-small {
 	overflow: visible;
 }
@@ -36,7 +29,7 @@ image {
 }
 
 .bubbles-small g:nth-of-type(1) image {
-  animation: wobble 2.3s infinite ease-in-out;
+  animation: wobble 7.3s infinite ease-in-out;
 }
 
 @keyframes wobble {
@@ -54,7 +47,7 @@ image {
     opacity: 0;
   }
 
-  50%, 90% {
+  10%, 90% {
   	opacity: 1;
   }
 
