@@ -8,11 +8,11 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className="Header-NotLoggedIn">
-        <Link to='/'>
+        <Link to='/Register'>
           Register
         </Link>
         {' - '}
-        <Link to='/login'>
+        <Link to='/Login'>
           Log in
         </Link>
       </div>
