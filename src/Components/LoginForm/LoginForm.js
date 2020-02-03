@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
+import ChatterContext from '../../ChatterContext';
 
 export default class Login extends Component {
+  static contextType = ChatterContext
 
   static defaultProps = {
-    location: {},
-    history: {
-      push: () => {},
-    },
+    onLoginSuccess: () => {},
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log('submitran')
     const { userName, password } = event.target
     const correctUN = 'chumbis'
     const correctPW = 'chumbis'
-    if(userName === correctUN && password === correctPW ) {
-      this.onLoginSuccess()
+    console.log(userName.value, password.value)
+    if(userName.value === correctUN && password.value === correctPW ) {
+      this.props.onLoginSuccess()
+      console.log('handlesubmitended')
     }
-  }
-
-  onLoginSuccess = () => {
-    const { location, history } = this.props
-    history.push('/')
   }
 
   render() {

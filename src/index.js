@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App/App';
 import{ BrowserRouter } from 'react-router-dom';
+import { ChatterProvider } from './ChatterContext';
 
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <ChatterProvider>
+      <App />
+    </ChatterProvider>
   </BrowserRouter>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
