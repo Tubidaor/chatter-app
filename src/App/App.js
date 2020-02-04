@@ -6,6 +6,7 @@ import Mainpage from '../Routes/MainPage/Mainpage';
 import LoginPage from '../Routes/LoginPage/LoginPage';
 import RegistrationPage from '../Routes/RegistrationPage/RegistrationPage';
 import Dinos from '../Components/Background/Dinos';
+import NewRugratPage from '../Routes/NewRugratPage/NewRugratPage';
 
 
 export default class App extends Component {
@@ -32,6 +33,10 @@ export default class App extends Component {
             <Route
               path={'/Register'}
               component={RegistrationPage}
+            />
+            <Route
+              path={'/AddChild'}
+              component={NewRugratPage}
             />
           </Switch>
           <Dinos numberOfBubbles={50}/>

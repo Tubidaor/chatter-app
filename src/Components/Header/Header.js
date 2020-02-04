@@ -8,6 +8,10 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className="Header-NotLoggedIn">
+        <Link to='AddChild'>
+          AddChild
+        </Link>
+        {' - '}
         <Link to='/Register'>
           Register
         </Link>
@@ -21,11 +25,11 @@ export default class Header extends Component {
   render() {
     return (
       <nav className='Header'>
-        <h1>
+        <span>
           <Link to='/'>
             "Chatter"
           </Link>
-        </h1>
+        </span>
         {this.renderLoginLink()}
       </nav>
     )

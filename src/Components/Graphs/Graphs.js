@@ -91,11 +91,11 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
       useMesh={true}
       legends={[
           {
-              anchor: 'top',
+              // anchor: 'top-left',
               direction: 'row',
               justify: false,
-              translateX: 100,
-              translateY: 0,
+              translateX: -50,
+              translateY: -10,
               itemsSpacing: 0,
               itemDirection: 'left-to-right',
               itemWidth: 80,

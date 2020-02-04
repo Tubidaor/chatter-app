@@ -4,7 +4,7 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   text-align: center;
 
 }
@@ -24,7 +24,4 @@ p {
 
 .MainPageSection {
   height: 1000px;
-}
-.Graphs {
-  margin-top: -100px;
 }
