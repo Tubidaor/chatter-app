@@ -1,8 +1,11 @@
-.MainChart {
-  display: block;
-  background-color:black;
+.GraphDiv {
+  /* display: block; */
+  /* background-color:black; */
   opacity: 0.9;
-  border-radius: 1rem;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
+  height: 20rem;
+  width: 50%; 
+  margin-top: -50px;
+  border-radius: 1rem;
 }
