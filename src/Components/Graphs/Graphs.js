@@ -9,7 +9,6 @@ import './Graphs.css'
 
 const data = [{
   "id": "Chumbis",
-  "color": "hsl(357, 70%, 50%)",
   "data": [
     {
       "x": 0,
@@ -31,7 +30,6 @@ const data = [{
 },
 {
   "id": "Standard",
-    "color": "hsl(40, 70%, 50%)",
     "data": [
       {
         "x": 0,

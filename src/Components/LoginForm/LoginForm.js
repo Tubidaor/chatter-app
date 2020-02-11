@@ -1,31 +1,54 @@
 import React, { Component } from 'react';
 import ChatterContext from '../../ChatterContext';
+import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 
 export default class Login extends Component {
-  static contextType = ChatterContext
-
   static defaultProps = {
     onLoginSuccess: () => {},
   }
 
-  handleSubmit = (event) => {
+  state = {error: null}
+
+  // handleSubmit = (event) => {
+  //   event.preventDefault()
+  //   console.log('submitran')
+  //   const { userName, password } = event.target
+    
+  //   console.log(userName.value, password.value)
+  //   if(userName.value === correctUN && password.value === correctPW ) {
+  //     this.props.onLoginSuccess()
+  //     console.log('handlesubmitended')
+  //   }
+  // }
+
+  handleSubmitJwtAuth = (event) => {
     event.preventDefault()
-    console.log('submitran')
+    this.setState({
+      error:null
+    })
     const { userName, password } = event.target
-    const correctUN = 'chumbis'
-    const correctPW = 'chumbis'
-    console.log(userName.value, password.value)
-    if(userName.value === correctUN && password.value === correctPW ) {
+
+    AuthApiService.postLogin({
+      user_name: userName.value,
+      password: password.value,
+    })
+    .then(res => {
+      userName.value = ''
+      password.value = ''
+      TokenService.saveAuthToken(res.authToken)
       this.props.onLoginSuccess()
-      console.log('handlesubmitended')
-    }
+    })
+    .catch(res => {
+      this.setState({error: res.error })
+    })
   }
 
   render() {
     return (
       <div>
         <form className="LoginForm"
-        onSubmit={this.handleSubmit}>
+        onSubmit={this.handleSubmitJwtAuth}>
 
           <fieldset>
             <legend>Log in</legend>
