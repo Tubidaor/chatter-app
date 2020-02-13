@@ -7,6 +7,8 @@ import LoginPage from '../Routes/LoginPage/LoginPage';
 import RegistrationPage from '../Routes/RegistrationPage/RegistrationPage';
 import Dinos from '../Components/Background/Dinos';
 import NewRugratPage from '../Routes/NewRugratPage/NewRugratPage';
+import PrivateRoute from '../Components/Utils/PrivateRoute';
+import PublicOnlyRoute from '../Components/Utils/PublicOnlyRoute';
 
 
 export default class App extends Component {
@@ -17,7 +19,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="appHeader">
-          <Header/>
+          <Header />
         </header>
         <main className="AppMain">
           <Switch>
@@ -26,17 +28,20 @@ export default class App extends Component {
               path={'/'}
               component={Mainpage}
             />
-            <Route
-              path={'/Login'}
+            <PublicOnlyRoute
+              path={'/login'}
               component={LoginPage}
               />
-            <Route
-              path={'/Register'}
+            <PublicOnlyRoute
+              path={'/register'}
               component={RegistrationPage}
             />
-            <Route
-              path={'/AddChild'}
+            <PrivateRoute
+              path={'/addChild'}
               component={NewRugratPage}
+            />
+            <PrivateRoute
+            path={'/users/:user_id'}
             />
           </Switch>
           <Dinos numberOfBubbles={50}/>

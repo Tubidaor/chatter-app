@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ChatterContext from '../../ChatterContext';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+
 
 export default class Login extends Component {
   static defaultProps = {

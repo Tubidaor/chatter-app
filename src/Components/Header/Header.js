@@ -1,37 +1,62 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import TokenService from '../../services/token-service';
 
 
 export default class Header extends Component {
 
-  renderLoginLink() {
+
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken()
+
+  }
+
+  renderLogoutNav() {
+    console.log('logoutnav ran')
     return (
-      <div className="Header-NotLoggedIn">
-        <Link to='AddChild'>
-          AddChild
+      <div className='HeaderLoggedIn'>
+        <Link to='/addChild'>
+            AddChild
         </Link>
-        {' - '}
-        <Link to='/Register'>
-          Register
-        </Link>
-        {' - '}
-        <Link to='/Login'>
-          Log in
+          {' - '}
+        <Link 
+          onClick={this.handleLogoutClick}
+          to='/'>
+            Logout
         </Link>
       </div>
     )
   }
+
+  renderLoginLink() {
+    console.log('renderlogin ran')
+      return (
+        <div className="HeaderNotLoggedIn">
+          
+          <Link to='/register'>
+            Register
+          </Link>
+          {' - '}
+          <Link to='/login'>
+            Log in
+          </Link>
+        </div>
+    )
+  }
+
   render() {
-    return (
+    return <>
       <nav className='Header'>
         <span>
           <Link to='/'>
             "Chatter"
           </Link>
         </span>
-        {this.renderLoginLink()}
+        {TokenService.hasAuthToken()
+          ? this.renderLogoutNav() 
+          : this.renderLoginLink()}
       </nav>
-    )
+    </>
   }
 }

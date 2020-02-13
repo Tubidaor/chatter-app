@@ -7,6 +7,7 @@ const ChatterContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   addWord: () => {},
+  staticLogin: () => {},
 })
 
 let words = [ 'papa', 'mama','pout', 'please', 'thank you', 'love','te quiero mucho', 'family','instead','happy'
