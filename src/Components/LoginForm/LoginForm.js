@@ -34,10 +34,10 @@ export default class Login extends Component {
       password: password.value,
     })
     .then(res => {
+      TokenService.saveAuthToken(res.authToken)
+      this.props.onLoginSuccess(userName.value)
       userName.value = ''
       password.value = ''
-      TokenService.saveAuthToken(res.authToken)
-      this.props.onLoginSuccess()
     })
     .catch(res => {
       this.setState({error: res.error })

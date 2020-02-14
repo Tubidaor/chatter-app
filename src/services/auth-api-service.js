@@ -1,4 +1,5 @@
 import config from '../config'
+import TokenService from '../services/token-service'
 
 const AuthApiService = {
   postLogin(credentials) {
@@ -30,6 +31,24 @@ const AuthApiService = {
           : res.json()
     )
   },
+
+  addWord(words, child_id) {
+    return fetch(`${config.API_ENDPOINT}/api/words`, {
+      method: 'POST',
+      headers: {
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
+      body: JSON.stringify({
+        words,
+        child_id,
+      }),
+    })
+      .then(res => {
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      })
+  }
 }
 
 export default AuthApiService

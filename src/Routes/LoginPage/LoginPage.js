@@ -14,10 +14,11 @@ export default class LoginPage extends Component {
 
   static contextType = ChatterContext;
 
-  handleLoginSuccess = () => {
+  handleLoginSuccess = (userName) => {
     console.log('handle success ran')
     const { location, history } = this.props
-    const destination = (location.state || {}).from || '/'
+    console.log(location)
+    const destination = (location.state || {}).from || `/words:${userName}`
     history.push(destination)
   }
 

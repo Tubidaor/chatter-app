@@ -9,6 +9,7 @@ import Dinos from '../Components/Background/Dinos';
 import NewRugratPage from '../Routes/NewRugratPage/NewRugratPage';
 import PrivateRoute from '../Components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../Components/Utils/PublicOnlyRoute';
+import UsersPage from '../Routes/UsersPage/Users-page';
 
 
 export default class App extends Component {
@@ -41,7 +42,8 @@ export default class App extends Component {
               component={NewRugratPage}
             />
             <PrivateRoute
-            path={'/users/:user_id'}
+            path={'/words/:userName'}
+            component={UsersPage}
             />
           </Switch>
           <Dinos numberOfBubbles={50}/>
