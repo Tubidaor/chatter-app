@@ -1,15 +1,16 @@
 
 import TokenService from './token-service';
-import ChatterContext from '../ChatterContext';
+
 import config from '../config';
+
 
 
 const WordsService = {
   getDataByUser(user_name) {
     console.log(user_name)
-    const allWords = `${config.API_ENDPOINT}/words/tubidaor`
+    console.log(TokenService.getAuthToken())
+    const allWords = `${config.API_ENDPOINT}/words/${user_name}`
     return fetch(allWords, {
-      // method: "GET",
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
@@ -20,6 +21,20 @@ const WordsService = {
           : res.json()
       )
   },
+  arrangeData(data) {
+    console.log(data)
+    let newData = []
+
+    // data.map(child => newData.id = )
+    for(let i = 0; i < data.length; i++) {
+      newData.push({ 
+        "id": data[i][0].name,
+        "data": data[i]
+    })
+    // console.log(newData.filter(data => Object.keys(data) != 'name'))
+    return newData
+  }
+},
 
 
 }

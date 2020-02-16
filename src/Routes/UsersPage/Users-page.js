@@ -17,16 +17,20 @@ export default class UsersPage extends Component {
 
   
   componentDidMount() {
-    const { user_name } = this.context.state
-    console.log('username is', user_name)
-    WordsService.getDataByUser(user_name)
-      .then(data => console.log(data))
+    const { userName } = this.props.match.params
+    console.log('username is', userName)
+    
+    WordsService.getDataByUser(userName)
+      .then(data => WordsService.arrangeData(data))
+      .then(newData => this.context.updateData(newData))
       
   }
   render(){
+    const { userData } = this.context.state
+    console.log( userData)
     return (
       <Section>
-        <Graphs></Graphs>
+        <Graphs data={userData}></Graphs>
         <WordForm></WordForm>
       </Section>
 

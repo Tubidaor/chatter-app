@@ -1,58 +1,60 @@
 import React, { Component } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import './Graphs.css'
+
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-const data = [{
-  "id": "Chumbis",
-  "data": [
-    {
-      "x": 0,
-      "y": 0,
-    },
-    {
-      "x": 1,
-      "y":100,
-    },
-    {
-      "x": 2,
-      "y":300,
-    },
-    {
-      "x": 3,
-      "y":1000,
-    },
-  ],
-},
-{
-  "id": "Standard",
-    "data": [
-      {
-        "x": 0,
-        "y":0,
-      },
-      {
-        "x": 1,
-        "y":100,
-      },
-      {
-        "x": 2,
-        "y":500,
-      },
-      {
-        "x": 3,
-        "y":1500,
-      },
-    ],
-},
+// const data = [{
+//   "id": "Chumbis",
+//   "data": [
+//     {
+//       "x": 0,
+//       "y": 0,
+//     },
+//     {
+//       "x": 1,
+//       "y":100,
+//     },
+//     {
+//       "x": 2,
+//       "y":300,
+//     },
+//     {
+//       "x": 3,
+//       "y":1000,
+//     },
+//   ],
+// },
+// {
+//   "id": "Standard",
+//     "data": [
+//       {
+//         "x": 0,
+//         "y":0,
+//       },
+//       {
+//         "x": 1,
+//         "y":100,
+//       },
+//       {
+//         "x": 2,
+//         "y":500,
+//       },
+//       {
+//         "x": 3,
+//         "y":1500,
+//       },
+//     ],
+// },
 
-]
+// ]
 
-const MyResponsiveLine = ({ data /* see data tab */ }) => (
+const MyResponsiveLine = ( data /* see data tab */ ) => (
+  
   <ResponsiveLine
       data={data}
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
@@ -117,10 +119,11 @@ const MyResponsiveLine = ({ data /* see data tab */ }) => (
 )
 
 export default class Graphs extends Component {
+  
   render() {
     return (
       <div className="GraphDiv">
-        {MyResponsiveLine({data})}
+        {MyResponsiveLine(this.props.data)}
       </div>
     )
   }

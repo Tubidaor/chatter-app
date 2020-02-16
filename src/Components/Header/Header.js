@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
+import ChatterContext from '../../ChatterContext';
 
 
 export default class Header extends Component {
+  static contextType = ChatterContext
 
 
   handleLogoutClick = () => {
-    TokenService.clearAuthToken()
-
+    TokenService.clearAuthToken();
+    this.context.updateLogin();
   }
 
   renderLogoutNav() {
@@ -46,6 +48,8 @@ export default class Header extends Component {
   }
 
   render() {
+    const { loginError } = this.context.state
+    
     return <>
       <nav className='Header'>
         <span>
@@ -53,7 +57,7 @@ export default class Header extends Component {
             "Chatter"
           </Link>
         </span>
-        {TokenService.hasAuthToken()
+        {!loginError
           ? this.renderLogoutNav() 
           : this.renderLoginLink()}
       </nav>
