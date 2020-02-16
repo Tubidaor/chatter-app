@@ -8,6 +8,7 @@ const ChatterContext = React.createContext({
   clearError: () => {},
   addWord: () => {},
   staticLogin: () => {},
+  updateUser: () => {},
 })
 
 let words = [ 'papa', 'mama','pout', 'please', 'thank you', 'love','te quiero mucho', 'family','instead','happy'
@@ -19,6 +20,7 @@ export default ChatterContext;
 export class ChatterProvider extends Component {
   state = {
     error: null,
+    user_name: '',
     loginError: true,
     graphData: series,
     kidData: [{
@@ -45,16 +47,16 @@ export class ChatterProvider extends Component {
     })
   }
 
-  addWord = (newWord) => {
-    console.log(newWord, words.length,this.state.kidData[0].data[0])
-    words.push(newWord)
+  updateUser = (userName) => {
     this.setState({
-      kidData: [{
-        data: [words.length]
-      }, {
-        data:[50,100,500, 600, 800,1000],
-      },
-      ],})
+      user_name: userName
+    })
+  }
+  addWords = (children, data=[]) => {
+    this.setState({
+      children,
+      data,
+    })
   }
   render() {
     const value ={
@@ -62,7 +64,7 @@ export class ChatterProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       staticLogin: this.staticLogin,
-      addWord: this.addWord,
+      updateUser: this.updateUser
     }
 
     return (

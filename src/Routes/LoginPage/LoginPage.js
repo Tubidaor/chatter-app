@@ -10,15 +10,17 @@ export default class LoginPage extends Component {
     history: {
       push: () => {},
     },
+    updateUser: () => {}
   }
 
   static contextType = ChatterContext;
 
   handleLoginSuccess = (userName) => {
-    console.log('handle success ran')
     const { location, history } = this.props
-    console.log(location)
-    const destination = (location.state || {}).from || `/words:${userName}`
+    console.log(userName)
+    const destination = (location.state || {}).from || `/words/${userName}`
+    this.context.updateUser(userName)
+    console.log(this.context.state.user_name)
     history.push(destination)
   }
 
