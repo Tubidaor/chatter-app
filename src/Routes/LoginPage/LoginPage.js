@@ -21,7 +21,7 @@ export default class LoginPage extends Component {
     console.log(userName)
     const destination = (location.state || {}).from || `/words/${userName}`
     this.context.updateUser(userName)
-    this.context.updateLogin()
+    this.context.updateLogin(false)
     console.log(this.context.state.user_name)
     history.push(destination)
   }

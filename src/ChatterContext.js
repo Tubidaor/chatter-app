@@ -75,9 +75,9 @@ export class ChatterProvider extends Component {
     })
   }
 
-  updateLogin = () => {
+  updateLogin = (loggedIn) => {
     this.setState({
-      loginError: !true,
+      loginError: loggedIn,
     })
   }
 
