@@ -33,13 +33,13 @@ const AuthApiService = {
   },
 
   addWord(words, child_id) {
-    return fetch(`${config.API_ENDPOINT}/api/words`, {
+    return fetch(`${config.API_ENDPOINT}/words`, {
       method: 'POST',
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
-        words,
+        words: words,
         child_id,
       }),
     })

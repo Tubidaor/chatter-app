@@ -9,6 +9,7 @@ const ChatterContext = React.createContext({
   addWord: () => {},
   updateUser: () => {},
   updateData: () => {},
+  updateUserData: () => {},
   updateLogin: () => {},
 })
 
@@ -44,7 +45,8 @@ export class ChatterProvider extends Component {
             },
           ],
     }],
-    userData: []
+    allUserData: [],
+    userData: [],
   }
 
 
@@ -62,16 +64,16 @@ export class ChatterProvider extends Component {
       user_name: userName
     })
   }
-  addWords = (children, data=[]) => {
+
+  updateData = (data) => {
     this.setState({
-      children,
-      data,
+      allUserData: data,
     })
   }
 
-  updateData = (newData) => {
+  updateUserData = (data) => {
     this.setState({
-      userData: newData
+      userData: data
     })
   }
 
@@ -89,6 +91,7 @@ export class ChatterProvider extends Component {
       updateLogin: this.updateLogin,
       updateUser: this.updateUser,
       updateData: this.updateData,
+      updateUserData: this.updateUserData,
     }
 
     return (

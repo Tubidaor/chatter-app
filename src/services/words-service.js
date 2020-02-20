@@ -22,23 +22,39 @@ const WordsService = {
           : res.json()
       )
   },
-  arrangeData(data) {
+  arrangeDataForGraph(data) {
     console.log(data)
     let newData = []
-    // data.map(child => newData.id = )
+    
     for(let i = 0; i < data.length; i++) {
+      console.log(data[i][0].name)
       newData.push({ 
         "id": data[i][0].name,
         "data": WordsService.makeArrayForChildData(data[i])
     })
-    // console.log(newData.filter(data => Object.keys(data) != 'name'))
-    return newData
+    console.log(newData)
   }
+  return newData
+},
+
+arrangeDataForWordPost(data) {
+  let newData = []
+
+  for(let i = 0; i < data.length; i++) {
+    console.log(data[i][0].name)
+    newData.push({ 
+      "id": data[i][0].id,
+      "name": data[i][0].name,
+  })
+  console.log(newData)
+}
+return newData
+
 },
 makeArrayForChildData(data) {
   let graphData = []
   data.map(item => {
-    console.log(item.date_created)
+    
     graphData.push({
       "x": WordsService.getAge(item.birthdate, item.date_created),
       "y": item.word_count,  
@@ -53,11 +69,12 @@ getAge(bD, createDate) {
   
   const yearDiff = cDate.getFullYear() - bDate.getFullYear()
   const monthDiff = Math.abs((cDate.getMonth() - bDate.getMonth())/12)
-  console.log(yearDiff+monthDiff)
+  
   const ageDiff = yearDiff + monthDiff
   return ageDiff.toFixed(2)
   
-}
+},
+// addNewWord(db, )
 
 
 }
