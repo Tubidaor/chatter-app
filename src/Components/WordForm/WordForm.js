@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ChatterContext from '../../ChatterContext';
 import AuthApiService from '../../services/auth-api-service';
+// import WordsService from '../../services/words-service';
+
 
 
 
@@ -9,19 +11,24 @@ export default class WordForm extends Component {
   // defaultProps = {
     
   // }
-  
+
 
   handleWordSubmit = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     const { newWord, childName } = event.target
-    console.log(newWord.value, childName.value)
-    AuthApiService.addWord(newWord.value, childName.value);
+    const word = {
+      words: newWord.value,
+      child_id: childName.value
+    }
+    AuthApiService.addWord(word)
+    .then(word => console.log(word))
+    
   }
-
+  
+  
   
   render() {
     const { children=[] } = this.props
-    console.log(children)
     return (
       <section className='wordFormSection'>
         <form onSubmit={this.handleWordSubmit}>

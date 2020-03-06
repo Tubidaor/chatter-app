@@ -32,8 +32,9 @@ const WordsService = {
         "id": data[i][0].name,
         "data": WordsService.makeArrayForChildData(data[i])
     })
-    console.log(newData)
-  }
+    console.log(newData[0][0])
+    }
+  
   return newData
 },
 
@@ -53,17 +54,29 @@ return newData
 },
 makeArrayForChildData(data) {
   let graphData = []
-  data.map(item => {
+  
+  data.map(item => 
     
     graphData.push({
       "x": WordsService.getAge(item.birthdate, item.date_created),
       "y": item.word_count,  
     })
-  })
-  
-  return graphData
+  )
+  let gData = [{"x":0, "y":0},...graphData]
+  const preFixData = [...graphData,{"x":0, "y":0}]
+  const unique = []
+  let i
+  for(i=0; i < preFixData.length; i++) {
+      if(preFixData[i].x !== gData[i].x) {
+        unique.push(gData[i])
+      }
+      // unique.push(gData[i])
+    }
+  console.log(unique, gData, preFixData)
+  return unique
 },
 getAge(bD, createDate) {
+  
   const bDate = new Date(bD)
   const cDate = new Date(createDate)
   

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Graphs from '../../Components/Graphs/Graphs';
 import WordForm from '../../Components/WordForm/WordForm';
 import { Section } from '../../Components/Utils/Utils'
-import AuthApiService from '../../services/auth-api-service';
 import ChatterContext from '../../ChatterContext';
 import WordsService from '../../services/words-service';
 
