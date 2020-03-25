@@ -57,7 +57,7 @@ export default class Header extends Component {
             "Chatter"
           </Link>
         </span>
-        {!loginError
+        {TokenService.hasAuthToken()
           ? this.renderLogoutNav() 
           : this.renderLoginLink()}
       </nav>
