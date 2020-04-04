@@ -6,14 +6,16 @@ import AuthApiService from '../../services/auth-api-service';
 export default class NewRugratForm extends Component {
 
   handleNewChildSubmit = (event) => {
+    console.log('handleNewChildRan')
     event.preventDefault()
     const { name_, gender, birthdate } = event.target
+    console.log(birthdate.value)
     const newChild = {
       name_: name_.value,
       gender: gender.value,
       birthdate: birthdate.value,
     }
-    
+    console.log(newChild.birthdate)
     AuthApiService.addChild(newChild)
 
   }

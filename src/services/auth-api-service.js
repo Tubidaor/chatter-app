@@ -49,7 +49,7 @@ const AuthApiService = {
       )
   },
 
-  addChild(newChild) {
+  async addChild(newChild) {
     return fetch(`${config.API_ENDPOINT}/children`, {
       method: 'POST',
       headers: {
@@ -59,7 +59,7 @@ const AuthApiService = {
       body: JSON.stringify(newChild),
     }).then(res => 
       (!res.ok)
-        ? res.json().then( e => Promise.reject(e))
+        ? res.json().then( e => console.log(e))
         : res.json()
     )
   }
