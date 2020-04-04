@@ -13,7 +13,7 @@ const WordsService = {
     const allWords = `${config.API_ENDPOINT}/words/${user_name}`
     return fetch(allWords, {
       headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -87,7 +87,7 @@ getAge(bD, createDate) {
   return ageDiff.toFixed(2)
   
 },
-// addNewWord(db, )
+
 
 
 }
