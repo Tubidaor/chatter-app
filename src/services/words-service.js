@@ -8,8 +8,6 @@ import config from '../config';
 
 const WordsService = {
   getDataByUser(user_name) {
-    console.log(user_name)
-    console.log(TokenService.getAuthToken())
     const allWords = `${config.API_ENDPOINT}/words/${user_name}`
     return fetch(allWords, {
       headers: {
@@ -52,12 +50,10 @@ arrangeDataForWordPost(data) {
   let newData = []
 
   for(let i = 0; i < data.length; i++) {
-    console.log(data[i][0].name)
     newData.push({ 
       "id": data[i][0].id,
       "name": data[i][0].name,
   })
-  console.log(newData)
 }
 return newData
 
@@ -82,7 +78,7 @@ makeArrayForChildData(data) {
       }
       // unique.push(gData[i])
     }
-  console.log(unique, gData, preFixData)
+  
   return unique
 },
 // makeArrayForChilren(data) {

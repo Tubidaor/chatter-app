@@ -30,7 +30,6 @@ export default class UsersPage extends Component {
 
   render() {
     const { allUserData, childrenData } = this.context.state
-    console.log(childrenData)
     // const childList = WordsService.arrangeDataForWordPost(allUserData)
     const graphData = WordsService.arrangeDataForGraph(allUserData)
     // const childList = WordsService.makeArrayForChilren(childrenData)

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import NewRugratForm from '../../Components/NewRugratForm/NewRugratForm';
+import ChatterContext from '../../ChatterContext';
 
 export default class NewRugratPage extends Component {
+  static contextType = ChatterContext
+
   static defaultProps = {
     history: {
       push: () => {},
@@ -9,8 +12,11 @@ export default class NewRugratPage extends Component {
   }
 
   handleAddSuccess = () => {
-    const { history } = this.props
-    history.push('/')
+    const { location, history } = this.props
+    const userName = this.context.state.user_name
+    console.log(userName)
+    const destination = (location.state || {}).from || `/words/${userName}`
+    history.push(destination)
   }
 
   render() {

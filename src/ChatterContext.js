@@ -63,7 +63,7 @@ export class ChatterProvider extends Component {
 
   updateUser = (userName) => {
     this.setState({
-      user_name: userName
+      user_name: userName,
     })
   }
 

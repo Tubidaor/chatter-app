@@ -18,7 +18,6 @@ export default class LoginPage extends Component {
 
   handleLoginSuccess = (userName) => {
     const { location, history } = this.props
-    console.log(userName)
     const destination = (location.state || {}).from || `/words/${userName}`
     this.context.updateUser(userName)
     this.context.updateLogin(false)

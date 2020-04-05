@@ -17,7 +17,6 @@ export default class Mainpage extends Component {
   renderContent() {
     
     const { mainPageData } = this.context.state
-    console.log(this.context.state.mainPageData)
       return (<>
         <Graphs className='Graphs' data={mainPageData}/>
         <p> The baby is making a lot of weird sounds.. wait, was that a word? Did she just use it in the right context? Hearing your kids progress in their speech development is one of the best things about being a parent. You can keep track of it here. Try it out, just type in the word and hit submit, and we'll do the rest. </p>

@@ -15,7 +15,6 @@ export default class Header extends Component {
   }
 
   renderLogoutNav() {
-    console.log('logoutnav ran')
     return (
       <div className='HeaderLoggedIn'>
         <Link to='/addChild'>
@@ -32,7 +31,6 @@ export default class Header extends Component {
   }
 
   renderLoginLink() {
-    console.log('renderlogin ran')
       return (
         <div className="HeaderNotLoggedIn">
           
