@@ -11,12 +11,14 @@ export default class NewRugratForm extends Component {
     const { name_, gender, birthdate } = event.target
     console.log(birthdate.value)
     const newChild = {
-      name_: name_.value,
+      name_: name_.value.charAt(0).toUpperCase(),
       gender: gender.value,
       birthdate: birthdate.value,
     }
     console.log(newChild.birthdate)
     AuthApiService.addChild(newChild)
+
+    this.props.onAddSuccess()
 
   }
   render() {

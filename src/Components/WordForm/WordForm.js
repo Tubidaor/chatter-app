@@ -42,7 +42,7 @@ export default class WordForm extends Component {
               {/* <option value="noFolder">...</option> */}
               {children.map(child => 
               <option key={child.id} value={child.id}>
-                {child.name}
+                {child.name_}
               </option>)}
             </select>
             <label>New word:</label>

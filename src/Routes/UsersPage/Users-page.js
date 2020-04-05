@@ -19,21 +19,26 @@ export default class UsersPage extends Component {
     const { userName } = this.props.match.params
   
     WordsService.getDataByUser(userName)
-      .then(data => this.context.updateData(data))  
+      .then(data => this.context.updateData(data))
+
+    WordsService.getChildrenByUser()
+      .then(data => this.context.updateChildren(data))
   }
 
   
-
+  
 
   render() {
-    const { allUserData } = this.context.state
-    const childList = WordsService.arrangeDataForWordPost(allUserData)
+    const { allUserData, childrenData } = this.context.state
+    console.log(childrenData)
+    // const childList = WordsService.arrangeDataForWordPost(allUserData)
     const graphData = WordsService.arrangeDataForGraph(allUserData)
+    // const childList = WordsService.makeArrayForChilren(childrenData)
 
     return (
       <Section>
         <Graphs data={graphData}></Graphs>
-        <WordForm children={childList}></WordForm>
+        <WordForm children={childrenData}></WordForm>
       </Section>
 
     )

@@ -10,18 +10,6 @@ export default class Login extends Component {
 
   state = {error: null}
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   console.log('submitran')
-  //   const { userName, password } = event.target
-    
-  //   console.log(userName.value, password.value)
-  //   if(userName.value === correctUN && password.value === correctPW ) {
-  //     this.props.onLoginSuccess()
-  //     console.log('handlesubmitended')
-  //   }
-  // }
-
   handleSubmitJwtAuth = (event) => {
     event.preventDefault()
     this.setState({
@@ -35,7 +23,6 @@ export default class Login extends Component {
     })
     .then(res => {
       TokenService.saveAuthToken(res.authToken)
-      console.log(userName.value)
       this.props.onLoginSuccess(userName.value)
       
       userName.value = ''

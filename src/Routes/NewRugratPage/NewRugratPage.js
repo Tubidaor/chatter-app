@@ -8,7 +8,7 @@ export default class NewRugratPage extends Component {
     },
   }
 
-  handleAddSuccess = user => {
+  handleAddSuccess = () => {
     const { history } = this.props
     history.push('/')
   }
@@ -16,7 +16,7 @@ export default class NewRugratPage extends Component {
   render() {
     return (
       <section className='AddChildPageSection'>
-        <NewRugratForm onRegSuccess={this.handleAddSuccess}
+        <NewRugratForm onAddSuccess={this.handleAddSuccess}
         />
       </section>
     )

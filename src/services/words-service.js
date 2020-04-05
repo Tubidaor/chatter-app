@@ -22,19 +22,29 @@ const WordsService = {
           : res.json()
       )
   },
-  arrangeDataForGraph(data) {
-    console.log(data)
-    let newData = []
-    
-    for(let i = 0; i < data.length; i++) {
-      console.log(data[i][0].name)
-      newData.push({ 
-        "id": data[i][0].name,
-        "data": WordsService.makeArrayForChildData(data[i])
+  getChildrenByUser() {
+    const childrenUrl = `${config.API_ENDPOINT}/children`
+    return fetch(childrenUrl, {
+      headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+      },
     })
-    console.log(newData[0][0])
-    }
-  
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  arrangeDataForGraph(data) {
+    data = data.filter(value => Object.keys(value).length !== 0)
+
+    let newData = []
+    for(let i = 0; i < data.length; i++) {
+        newData.push({ 
+          "id": data[i][0].name,
+          "data": WordsService.makeArrayForChildData(data[i])
+        })
+      }
   return newData
 },
 
@@ -75,6 +85,13 @@ makeArrayForChildData(data) {
   console.log(unique, gData, preFixData)
   return unique
 },
+// makeArrayForChilren(data) {
+//   console.log(data)
+//   let graphData = []
+//   data.map(child => graphData.push(child.name_, child))
+//   console.log(graphData)
+//   return graphData
+// },
 getAge(bD, createDate) {
   
   const bDate = new Date(bD)
