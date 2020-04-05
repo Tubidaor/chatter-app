@@ -45,16 +45,39 @@ export default class Header extends Component {
     )
   }
 
-  render() {
-    const { loginError } = this.context.state
-    
-    return <>
-      <nav className='Header'>
-        <span>
+  renderChatterHome() {
+    return (
+      <span>
           <Link to='/'>
             "Chatter"
           </Link>
         </span>
+    )
+  }
+
+  renderChatterUser() {
+    const userName = this.context.state.user_name
+    return (
+      <span>
+          <Link to={`/words/${userName}`}>
+            "Chatter"
+          </Link>
+        </span>
+    )
+  }
+
+  
+  
+
+  renderChatterUser
+
+  render() {
+    
+    return <>
+      <nav className='Header'>
+        {TokenService.hasAuthToken()
+          ? this.renderChatterUser()
+          : this.renderChatterHome()}
         {TokenService.hasAuthToken()
           ? this.renderLogoutNav() 
           : this.renderLoginLink()}
