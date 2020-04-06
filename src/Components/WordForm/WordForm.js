@@ -2,27 +2,22 @@ import React, { Component } from 'react';
 import ChatterContext from '../../ChatterContext';
 import AuthApiService from '../../services/auth-api-service';
 // import WordsService from '../../services/words-service';
+import ErrorDisplay from '../../Components/ErrorsDisplay/ErrorsDisplay'
 
 
 
 
 export default class WordForm extends Component {
   static contextType = ChatterContext;
-  // defaultProps = {
-    
-  // }
-
 
   handleWordSubmit = (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     const { newWord, childName } = event.target
     const word = {
       words: newWord.value,
       child_id: childName.value
     }
-    AuthApiService.addWord(word)
-
-    console.log(this.context.state.error)
+    AuthApiService.addWord(word, this.context.setError)
     
   }
   
@@ -32,6 +27,7 @@ export default class WordForm extends Component {
     const { children=[] } = this.props
     return (
       <section className='wordFormSection'>
+        {this.context.state.error && <ErrorDisplay/>}
         <form onSubmit={this.handleWordSubmit}>
         <fieldset>
             <legend>Enter a word</legend>

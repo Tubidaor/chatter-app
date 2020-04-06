@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const ChatterContext = React.createContext({
-  error: null,
+  error: false,
   setError: () => {},
   clearError: () => {},
   addWord: () => {},
@@ -19,7 +19,7 @@ export default ChatterContext;
 
 export class ChatterProvider extends Component {
   state = {
-    error: null,
+    error: false,
     user_name: '',
     loginError: true,
     mainPageData: [{

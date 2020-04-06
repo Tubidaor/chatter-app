@@ -1,8 +1,8 @@
 import config from '../config'
 import TokenService from '../services/token-service'
 
-
 const AuthApiService = {
+  
   postLogin(credentials) {
     return fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: 'POST',
@@ -33,8 +33,9 @@ const AuthApiService = {
     )
   },
 
-  async addWord(word) {
-    console.log(word)
+  async addWord(word, setError) {
+    
+    
     return fetch(`${config.API_ENDPOINT}/words/`, {
       method: 'POST',
       headers: {
@@ -44,7 +45,7 @@ const AuthApiService = {
     })
       .then(res =>
         (!res.ok)
-          ? res.json().then(e => console.log(e))
+          ? res.json().then(e => setError(e.error))
           : res.json()
       )
   },
