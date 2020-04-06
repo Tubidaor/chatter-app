@@ -8,12 +8,6 @@ import RegistrationPage from '../RegistrationPage/RegistrationPage';
 export default class Mainpage extends Component {
   static contextType = ChatterContext;
 
-  componentDidMount() {
-    console.log('compent mounted')
-    
-  }
-
-
   renderContent() {
     
     const { mainPageData } = this.context.state
