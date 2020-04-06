@@ -7,7 +7,7 @@ import AuthApiService from '../../services/auth-api-service';
 
 
 export default class WordForm extends Component {
-  // static contextType = ChatterContext;
+  static contextType = ChatterContext;
   // defaultProps = {
     
   // }
@@ -21,7 +21,8 @@ export default class WordForm extends Component {
       child_id: childName.value
     }
     AuthApiService.addWord(word)
-    .then(word => console.log(word))
+
+    console.log(this.context.state.error)
     
   }
   

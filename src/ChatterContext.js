@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {series} from './Components/Graphs/Graph-data';
-
 
 const ChatterContext = React.createContext({
   error: null,
@@ -14,8 +12,7 @@ const ChatterContext = React.createContext({
   updateChildren: () => {},
 })
 
-let words = [ 'papa', 'mama','pout', 'please', 'thank you', 'love','te quiero mucho', 'family','instead','happy'
-  ]
+
 
 
 export default ChatterContext;
@@ -53,8 +50,9 @@ export class ChatterProvider extends Component {
 
 
   setError = error => {
-    console.error(error)
-    this.ListeningStateChangedEvent({ error })
+    this.setState({
+      error,
+    })
   }
 
   clearError = () => {
