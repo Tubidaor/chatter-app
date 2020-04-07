@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatterContext from '../../ChatterContext';
 import AuthApiService from '../../services/auth-api-service';
-// import WordsService from '../../services/words-service';
+import WordsService from '../../services/words-service';
 import ErrorDisplay from '../../Components/ErrorsDisplay/ErrorsDisplay'
 
 
@@ -18,6 +18,13 @@ export default class WordForm extends Component {
       child_id: childName.value
     }
     AuthApiService.addWord(word, this.context.setError)
+
+    const { user_name } = this.context.state
+  
+    WordsService.getDataByUser(user_name)
+      .then(data => this.context.updateData(data))
+
+    event.target.newWord = ''
     
   }
   
@@ -36,7 +43,6 @@ export default class WordForm extends Component {
               Choose Child
             </label>
             <select id='childSelect' name='childName'>
-              {/* <option value="noFolder">...</option> */}
               {children.map(child => 
               <option key={child.id} value={child.id}>
                 {child.name_}

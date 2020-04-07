@@ -11,7 +11,7 @@ const WordsService = {
     const allWords = `${config.API_ENDPOINT}/words/${user_name}`
     return fetch(allWords, {
       headers: {
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -24,7 +24,7 @@ const WordsService = {
     const childrenUrl = `${config.API_ENDPOINT}/children`
     return fetch(childrenUrl, {
       headers: {
-        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>

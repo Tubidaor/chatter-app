@@ -40,6 +40,7 @@ const AuthApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(word),
     })
