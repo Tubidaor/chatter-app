@@ -4,6 +4,7 @@
   left: 20%;
   width: 100%;
   max-width: 100rem;
+  -webkit-transform: translateX(-30%);
   transform: translateX(-30%);
 	opacity: 0.9;
   overflow: visible;
@@ -24,6 +25,7 @@ image {
 }
 
 .bubbles-small > g {
+  -webkit-transform: translateY(2048px);
   transform: translateY(2048px);
   will-change: transform, opacity;
 }
@@ -34,10 +36,12 @@ image {
 
 @keyframes wobble {
   33% {
+    -webkit-transform: translate(-50px);
     transform: translateX(-50px);
   }
 
   66% {
+    -webkit-transform: translateX(50px);
     transform: translateX(50px);
   }	
 }
@@ -52,7 +56,8 @@ image {
   }
 
   100% {
-  	opacity: 0;
+    opacity: 0;
+    -webkit-transform: translateY(-124px);
   	transform: translateY(-124px);
   }
 }

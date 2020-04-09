@@ -2,56 +2,6 @@ import React, { Component } from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import './Graphs.css'
 
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-
-// const data = [{
-//   "id": "Chumbis",
-//   "data": [
-//     {
-//       "x": 0,
-//       "y": 0,
-//     },
-//     {
-//       "x": 1,
-//       "y":100,
-//     },
-//     {
-//       "x": 2,
-//       "y":300,
-//     },
-//     {
-//       "x": 3,
-//       "y":1000,
-//     },
-//   ],
-// },
-// {
-//   "id": "Standard",
-//     "data": [
-//       {
-//         "x": 0,
-//         "y":0,
-//       },
-//       {
-//         "x": 1,
-//         "y":100,
-//       },
-//       {
-//         "x": 2,
-//         "y":500,
-//       },
-//       {
-//         "x": 3,
-//         "y":1500,
-//       },
-//     ],
-// },
-
-// ]
 
 const MyResponsiveLine = ( data /* see data tab */ ) => (
   
@@ -77,15 +27,15 @@ const MyResponsiveLine = ( data /* see data tab */ ) => (
           tickPadding: 5,
           tickRotation: 0,
           legend: 'Known Words',
-          legendOffset: -40,
+          legendOffset: -45,
           legendPosition: 'middle'
       }}
       colors={{ scheme: 'set1' }}
-      pointSize={10}
+      pointSize={5}
       pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
       pointBorderColor={{ from: 'serieColor' }}
-      enablePointLabel={true}
+      enablePointLabel={false}
       pointLabel="y"
       pointLabelYOffset={-12}
       useMesh={true}
@@ -95,7 +45,7 @@ const MyResponsiveLine = ( data /* see data tab */ ) => (
               direction: 'row',
               justify: false,
               translateX: -50,
-              translateY: -30,
+              translateY: -40,
               itemsSpacing: 4,
               itemDirection: 'left-to-right',
               itemWidth: 80,
