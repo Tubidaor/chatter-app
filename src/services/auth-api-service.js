@@ -47,7 +47,7 @@ const AuthApiService = {
       .then(res =>
         (!res.ok)
           ? res.json().then(e => setError(e.error))
-          : res.json()
+          : res.json().then(word => setError(`The word, '${word.words}', has been added.`))
       )
   },
 
@@ -61,7 +61,7 @@ const AuthApiService = {
       body: JSON.stringify(newChild),
     }).then(res => 
       (!res.ok)
-        ? res.json().then( e => console.log(e))
+        ? res.json().then( e => Promise.reject(e))
         : res.json()
     )
   }

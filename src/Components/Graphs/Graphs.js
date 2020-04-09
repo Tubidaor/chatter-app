@@ -80,7 +80,7 @@ const MyResponsiveLine = ( data /* see data tab */ ) => (
           legendOffset: -40,
           legendPosition: 'middle'
       }}
-      colors={{ scheme: 'red_yellow_blue' }}
+      colors={{ scheme: 'set1' }}
       pointSize={10}
       pointColor={{ theme: 'background' }}
       pointBorderWidth={2}
@@ -95,12 +95,12 @@ const MyResponsiveLine = ( data /* see data tab */ ) => (
               direction: 'row',
               justify: false,
               translateX: -50,
-              translateY: -10,
-              itemsSpacing: 0,
+              translateY: -30,
+              itemsSpacing: 4,
               itemDirection: 'left-to-right',
               itemWidth: 80,
               itemHeight: 20,
-              itemOpacity: 0.75,
+              itemOpacity: 1,
               symbolSize: 12,
               symbolShape: 'circle',
               symbolBorderColor: 'rgba(0, 0, 0, .5)',
@@ -108,7 +108,7 @@ const MyResponsiveLine = ( data /* see data tab */ ) => (
                   {
                       on: 'hover',
                       style: {
-                          itemBackground: 'rgba(0, 0, 0, .03)',
+                          itemBackground: 'rgba(200, 200, 200, .03)',
                           itemOpacity: 1
                       }
                   }

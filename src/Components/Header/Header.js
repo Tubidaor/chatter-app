@@ -3,6 +3,9 @@ import './Header.css';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 import ChatterContext from '../../ChatterContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComments } from '@fortawesome/free-solid-svg-icons'
+
 
 
 export default class Header extends Component {
@@ -17,11 +20,11 @@ export default class Header extends Component {
   renderLogoutNav() {
     return (
       <div className='HeaderLoggedIn'>
-        <Link to='/addChild'>
-            AddChild
+        <Link className="navLinks" to='/addChild'>
+            Add Child
         </Link>
           {' - '}
-        <Link 
+        <Link className="navLinks"
           onClick={this.handleLogoutClick}
           to='/'>
             Logout
@@ -49,9 +52,11 @@ export default class Header extends Component {
     return (
       <span>
           <Link to='/'>
-            "Chatter"
+            <FontAwesomeIcon icon={faComments}/>
+            {" "}
+            Chatter
           </Link>
-        </span>
+      </span>
     )
   }
 
@@ -60,7 +65,9 @@ export default class Header extends Component {
     return (
       <span>
           <Link to={`/words/${userName}`}>
-            "Chatter"
+            <FontAwesomeIcon icon={faComments}/>
+            {" "}
+            Chatter
           </Link>
         </span>
     )

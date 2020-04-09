@@ -3,6 +3,7 @@ import ChatterContext from '../../ChatterContext';
 import AuthApiService from '../../services/auth-api-service';
 import WordsService from '../../services/words-service';
 import ErrorDisplay from '../../Components/ErrorsDisplay/ErrorsDisplay'
+import './WordForm.css';
 
 
 
@@ -18,13 +19,14 @@ export default class WordForm extends Component {
       child_id: childName.value
     }
     AuthApiService.addWord(word, this.context.setError)
+      
 
     const { user_name } = this.context.state
   
     WordsService.getDataByUser(user_name)
       .then(data => this.context.updateData(data))
 
-    event.target.newWord = ''
+    event.target.newWord.value = ''
     
   }
   
@@ -35,23 +37,24 @@ export default class WordForm extends Component {
     return (
       <section className='wordFormSection'>
         {this.context.state.error && <ErrorDisplay/>}
-        <form onSubmit={this.handleWordSubmit}>
+        <form className="wordForm" onSubmit={this.handleWordSubmit}>
         <fieldset>
             <legend>Enter a word</legend>
               
             <label htmlFor='childSelect'>
-              Choose Child
+              Child:
             </label>
-            <select id='childSelect' name='childName'>
+            <select className="selectInput" id='childSelect' name='childName'>
               {children.map(child => 
               <option key={child.id} value={child.id}>
                 {child.name_}
               </option>)}
             </select>
-            <label>New word:</label>
-            <input name='newWord' type="text" placeholder="Papa"/>
             <br/>
-            <button type='submit'>submit</button>
+            <label>New word:</label>
+            <input className="wordInput" name='newWord' type="text" placeholder="Papa"/>
+            <br/>
+            <button className="wordFormButton" type='submit'>Submit</button>
           </fieldset>
         </form>
       </section>

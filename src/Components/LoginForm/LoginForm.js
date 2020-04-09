@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
+import './LoginForm.css';
 
 
 export default class Login extends Component {
@@ -46,7 +47,7 @@ export default class Login extends Component {
             <br/>
             <label>Password:</label>
             <input name='password' type="text" placeholder="**********"/>
-            <button type='submit'>submit</button>
+            <button type='submit'>Submit</button>
           </fieldset>
         </form>
       </div>

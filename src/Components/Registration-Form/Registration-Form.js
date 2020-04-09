@@ -51,7 +51,7 @@ export default class RegistrationForm extends Component {
             <label>Confirm:</label>
             <input name='confirm' type="text" placeholder="**********"/>
             <br/>
-            <button type='submit'>submit</button>
+            <button type='submit'>Submit</button>
           </fieldset>
         </form>
       </div>

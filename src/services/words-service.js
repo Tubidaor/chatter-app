@@ -81,13 +81,7 @@ makeArrayForChildData(data) {
   
   return unique
 },
-// makeArrayForChilren(data) {
-//   console.log(data)
-//   let graphData = []
-//   data.map(child => graphData.push(child.name_, child))
-//   console.log(graphData)
-//   return graphData
-// },
+
 getAge(bD, createDate) {
   
   const bDate = new Date(bD)

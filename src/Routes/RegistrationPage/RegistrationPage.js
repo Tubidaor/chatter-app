@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RegistrationForm from '../../Components/Registration-Form/Registration-Form';
+import WordsService from '../../services/words-service'
+import ChatterContext from '../../ChatterContext';
 
 export default class RegistrationPage extends Component {
   static defaultProps = {
@@ -8,7 +10,13 @@ export default class RegistrationPage extends Component {
     },
   }
 
+  static contextType = ChatterContext;
+
   handleRegistrationSuccess = user => {
+
+    WordsService.getChildrenByUser()
+      .then(data => this.context.updateChildren(data))
+
     const { history } = this.props
     history.push(`/users/${user.id}`)
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import './NewRugratForm.css'
 
 
 
@@ -35,9 +36,16 @@ export default class NewRugratForm extends Component {
             <input name='birthdate' type="text" placeholder="02/17/2017"/>
             <br/>
             <label>Gender:</label>
-            <input name='gender' type="text" placeholder="Female"/>
+            <select className="mFSelect">
+              <option value="Female">
+                Female
+              </option>
+              <option value="Male">
+                Male
+              </option>
+            </select>
             <br/>
-            <button type="submit">submit</button>
+            <button type="submit">Submit</button>
           </fieldset>
         </form>
       </div>

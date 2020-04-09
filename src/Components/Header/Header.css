@@ -1,5 +1,6 @@
 .Header {
-  height: 40px;
+  height: 26px;
+
   display: flex;
   align-items: normal;
   justify-content: space-between;
@@ -18,12 +19,20 @@
   font-size: .8rem;
 }
 
-@media screen and (min-width: 450px) {
+.navLinks {
+  text-decoration: 'none';
+  color: 'blue';
+}
+
+
+a:-webkit-any-link  {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (min-width: 520px) {
   .Header {
     align-items: baseline;
   }
 
-  /* .Header h1 {
-    font-size: 22pt;
-  } */
 }

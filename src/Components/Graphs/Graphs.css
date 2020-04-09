@@ -1,12 +1,18 @@
 .GraphDiv {
   /* display: block; */
-  /* background-color:black; */
+  background-color:white;
   opacity: 0.9;
   margin-left: auto;
   margin-right: auto;
   height: 20rem;
-  width: 50%; 
-  margin-top: -50px;
+  width: 65%; 
+  margin-top: 0px;
   border-radius: 1rem;
   font-size: 2rem;
+}
+
+@media screen and (max-width: 520px) {
+  .GraphDiv {
+    width:90%;
+  }
 }

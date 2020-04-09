@@ -1,0 +1,47 @@
+.wordForm {
+  width: 55%;
+ 
+}
+
+.wordFormButton {
+  font-weight: bold;
+  display: block;
+}
+
+.wordInput, .selectInput {
+  border: solid red;
+  border-radius: 4px;
+  /* display: inline-block; */
+}
+
+
+@media screen and (max-width: 900px) {
+  .wordForm {
+    width:65%;
+  }
+}
+  @media screen and (max-width: 750px) {
+    .wordForm {
+      width:70%;
+    }
+}
+@media screen and (max-width: 700px) {
+  .wordForm {
+    width:50%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .wordForm {
+    width:65%;
+  }
+}
+@media screen and (max-width: 420px) {
+  .wordForm {
+    width:80%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .wordForm {
+    width:90%;
+  }
+}

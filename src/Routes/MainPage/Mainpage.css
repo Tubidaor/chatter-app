@@ -10,9 +10,9 @@ h1 {
 }
 
 p {
-  background-color: black;
-  opacity: 1;
-  color: red;
+  background-color: white;
+  opacity: .9;
+  color:black;
   font-weight: bold;
   display: block;
   margin-left: auto;
@@ -24,4 +24,10 @@ p {
 
 .MainPageSection {
   height: 1000px;
+}
+
+@media screen and (max-width: 520px) {
+  p {
+    width:90%;
+  }
 }

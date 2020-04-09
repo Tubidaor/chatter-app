@@ -2,12 +2,14 @@ form {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  background-color: black;
+  background-color: white;
   opacity: .9;
-  color: red;
+  color: black;
   font-weight: bold;
   margin-top: 1rem;
   border-radius: 1rem;
+  border: solid blue;
+  padding-top: 10px;
 }
 
 legend {
@@ -28,4 +30,16 @@ label {
   width: 90px; 
   margin:6px; 
   text-align: left; 
+}
+
+Button {
+  font-weight: bold;
+  border: solid red;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 520px) {
+  form {
+    width:90%;
+  }
 }

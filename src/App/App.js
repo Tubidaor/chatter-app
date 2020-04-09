@@ -10,6 +10,15 @@ import NewRugratPage from '../Routes/NewRugratPage/NewRugratPage';
 import PrivateRoute from '../Components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../Components/Utils/PublicOnlyRoute';
 import UsersPage from '../Routes/UsersPage/Users-page';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faComments } from '@fortawesome/free-regular-svg-icons';
+
+library.add(
+  faCoffee,
+  faComments
+);
 
 
 export default class App extends Component {
@@ -20,8 +29,11 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="appHeader">
-          <Header />
+          <Header className="headerNav"/>
         </header>
+        <div className='redDiv'></div>
+        <div className='blueDiv'></div>
+        <div className='yellowDiv'></div>
         <main className="AppMain">
           <Switch>
             <Route

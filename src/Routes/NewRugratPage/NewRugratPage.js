@@ -14,7 +14,6 @@ export default class NewRugratPage extends Component {
   handleAddSuccess = () => {
     const { location, history } = this.props
     const userName = this.context.state.user_name
-    console.log(userName)
     const destination = (location.state || {}).from || `/words/${userName}`
     history.push(destination)
   }

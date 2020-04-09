@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ChatterContext from '../../ChatterContext';
+import './ErrorsDisplay.css'
 
 export default class ErrorDisplay extends Component {
 
@@ -8,7 +9,7 @@ export default class ErrorDisplay extends Component {
   render() {
     const error = this.context.state.error
     return (
-      <div>
+      <div className='errorsDisplay'>
         <p>{`${error}`}</p>
       </div>
     )
