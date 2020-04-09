@@ -5,6 +5,9 @@
   width: 100%;
   max-width: 100rem;
   -webkit-transform: translateX(-30%);
+  -ms-transform: translateX(-30%);
+  -moz-transform: translateX(-30%);
+  -o-transform: translateX(-30%);
   transform: translateX(-30%);
 	opacity: 0.9;
   overflow: visible;
@@ -26,6 +29,9 @@ image {
 
 .bubbles-small > g {
   -webkit-transform: translateY(2048px);
+  -ms-transform: translateY(2048px);
+  -moz-transform: translateY(2048px);
+  -o-transform: translateY(2048px);
   transform: translateY(2048px);
   will-change: transform, opacity;
 }
@@ -36,13 +42,19 @@ image {
 
 @keyframes wobble {
   33% {
-    -webkit-transform: translate(-50px);
+    -webkit-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
     transform: translateX(-50px);
   }
 
   66% {
-    -webkit-transform: translateX(50px);
-    transform: translateX(50px);
+    -webkit-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+    transform: translateX(-50px);
   }	
 }
 
@@ -58,6 +70,9 @@ image {
   100% {
     opacity: 0;
     -webkit-transform: translateY(-124px);
+    -ms-transform: translateY(-124px);
+    -moz-transform: translateY(-124px);
+    -o-transform: translateY(-124px);
   	transform: translateY(-124px);
   }
 }

@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "alias":"juanbaltazar-chatter-app",
+  "name": "chatter-app",
+  "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+  ]
+}
