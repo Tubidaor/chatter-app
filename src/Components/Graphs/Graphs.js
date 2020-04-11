@@ -3,7 +3,7 @@ import { ResponsiveLine } from '@nivo/line';
 import './Graphs.css'
 
 
-const MyResponsiveLine = ( data /* see data tab */ ) => (
+const MyResponsiveLine = ( data ) => (
   
   <ResponsiveLine
       data={data}

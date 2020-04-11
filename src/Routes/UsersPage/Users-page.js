@@ -9,8 +9,7 @@ import WordsService from '../../services/words-service';
 
 
 export default class UsersPage extends Component {
-  // need to get children and pass them to the form, or set state to populate options
-  // then need to set state so that the graphs can have the data. 
+
   static contextType =  ChatterContext
   
 
@@ -30,9 +29,7 @@ export default class UsersPage extends Component {
 
   render() {
     const { allUserData, childrenData } = this.context.state
-    // const childList = WordsService.arrangeDataForWordPost(allUserData)
     const graphData = WordsService.arrangeDataForGraph(allUserData, this.context.state.mainPageData)
-    // const childList = WordsService.makeArrayForChilren(childrenData)
 
     return (
       <Section>

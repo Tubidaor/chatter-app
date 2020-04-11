@@ -18,7 +18,7 @@ const AuthApiService = {
       )
   },
 
-  postUser(user) {
+  postUser(user, updateError) {
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
       headers: {
@@ -28,7 +28,7 @@ const AuthApiService = {
     })
       .then(res => 
         (!res.ok)
-          ? res.json().then( e => Promise.reject(e))
+          ? res.json().then( e => updateError(e.error))
           : res.json()
     )
   },

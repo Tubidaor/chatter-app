@@ -76,7 +76,7 @@ makeArrayForChildData(data) {
       if(preFixData[i].x !== gData[i].x) {
         unique.push(gData[i])
       }
-      // unique.push(gData[i])
+     
     }
   
   return unique

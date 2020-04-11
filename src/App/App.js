@@ -11,7 +11,6 @@ import PrivateRoute from '../Components/Utils/PrivateRoute';
 import PublicOnlyRoute from '../Components/Utils/PublicOnlyRoute';
 import UsersPage from '../Routes/UsersPage/Users-page';
 import { library } from '@fortawesome/fontawesome-svg-core';
-
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-regular-svg-icons';
 

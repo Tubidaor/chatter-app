@@ -34,9 +34,10 @@ export default class WordForm extends Component {
   
   render() {
     const { children=[] } = this.props
+    const error = this.context.state.error
     return (
       <section className='wordFormSection'>
-        {this.context.state.error && <ErrorDisplay/>}
+        {this.context.state.error && <ErrorDisplay errors={error}/>}
         <form className="wordForm" onSubmit={this.handleWordSubmit}>
         <fieldset>
             <legend>Enter a word</legend>

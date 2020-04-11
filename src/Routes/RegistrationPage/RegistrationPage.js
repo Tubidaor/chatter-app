@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RegistrationForm from '../../Components/Registration-Form/Registration-Form';
-import WordsService from '../../services/words-service'
 import ChatterContext from '../../ChatterContext';
 
 export default class RegistrationPage extends Component {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 import './LoginForm.css';
+import ErrorsDisplay from '../ErrorsDisplay/ErrorsDisplay';
 
 
 export default class Login extends Component {
@@ -37,6 +38,7 @@ export default class Login extends Component {
   render() {
     return (
       <div>
+        { this.state.error && <ErrorsDisplay error={this.state.error}/>}
         <form className="LoginForm"
         onSubmit={this.handleSubmitJwtAuth}>
 

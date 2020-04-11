@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import './Registration-Form.css'
 import AuthApiService from '../../services/auth-api-service';
-
+import ErrorsDisplay from '../ErrorsDisplay/ErrorsDisplay';
 
 
 export default class RegistrationForm extends Component {
+  
+  state = { error: null }
+
+  updateError = (error) => {
+    this.setState({error: error})
+  } 
 
   handleRegSubmit = (event) => {
     event.preventDefault()
@@ -21,15 +27,15 @@ export default class RegistrationForm extends Component {
 
     }
 
-    AuthApiService.postUser(user)
-      .then(userRes => {
-        this.props.handleSuccessfulReg(userRes.id)
-      })
+    AuthApiService.postUser(user, this.updateError)
+      
+    this.state.error === false && this.props.handleSuccessfulReg()
 
   }
   render() {
     return (
       <div>
+        {this.state.error && <ErrorsDisplay error={this.state.error}/>}
         <form className='regForm' onSubmit={this.handleRegSubmit}>
           <fieldset>
             <legend>Register</legend>
@@ -37,13 +43,13 @@ export default class RegistrationForm extends Component {
             <input name='email' type="text" placeholder="name@gmail.com"/>
             <br/>
             <label>First Name:</label>
-            <input name='first_name' type="text" placeholder="name@gmail.com"/>
+            <input name='first_name' type="text" placeholder="Faith"/>
             <br/>
             <label>Last Name:</label>
-            <input name='last_name' type="text" placeholder="name@gmail.com"/>
+            <input name='last_name' type="text" placeholder="Frusciante"/>
             <br/>
             <label>Username:</label>
-            <input name='user_name' type="text" placeholder="Alice"/>
+            <input name='user_name' type="text" placeholder="AliceinWonderland"/>
             <br/>
             <label>Password:</label>
             <input name='password' type="text" placeholder="**********"/>
