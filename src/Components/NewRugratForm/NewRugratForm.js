@@ -36,7 +36,7 @@ export default class NewRugratForm extends Component {
             <input name='birthdate' type="text" placeholder="02/17/2017"/>
             <br/>
             <label>Gender:</label>
-            <select className="mFSelect">
+            <select name='gender' className="mFSelect">
               <option value="Female">
                 Female
               </option>

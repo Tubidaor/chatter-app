@@ -35,7 +35,6 @@ const WordsService = {
   },
   arrangeDataForGraph(data, standardData) {
     data = data.filter(value => Object.keys(value).length !== 0)
-    console.log(standardData)
     let newData = []
     for(let i = 0; i < data.length; i++) {
         newData.push({ 
@@ -44,7 +43,6 @@ const WordsService = {
         })
       }
     newData.push(standardData[0])
-    console.log(newData)
   return newData
 },
 

@@ -12,13 +12,9 @@ export default class RegistrationPage extends Component {
 
   static contextType = ChatterContext;
 
-  handleRegistrationSuccess = user => {
-
-    WordsService.getChildrenByUser()
-      .then(data => this.context.updateChildren(data))
-
+  handleRegistrationSuccess = () => {
     const { history } = this.props
-    history.push(`/users/${user.id}`)
+    history.push('/login')
   }
 
   render() {

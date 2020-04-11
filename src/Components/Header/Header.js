@@ -15,6 +15,7 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     this.context.updateLogin(true);
+    this.context.updateUser('')
   }
 
   renderLogoutNav() {
