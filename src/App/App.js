@@ -18,7 +18,7 @@ import { faComments } from '@fortawesome/free-regular-svg-icons';
 library.add(
   faCoffee,
   faComments
-);
+)
 
 
 export default class App extends Component {

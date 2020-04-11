@@ -1,7 +1,7 @@
 .bubbles-container {
   position: absolute;
   top: 0;
-  left: 20%;
+  left: 25%;
   width: 100%;
   max-width: 100rem;
   -webkit-transform: translateX(-30%);
@@ -16,15 +16,11 @@
 
 .bubbles {
 	width: 100%;
-	height: auto;
 }
 
-image {
-  height: 60px;
-}
 
 .bubbles-small {
-	overflow: visible;
+  overflow: visible;
 }
 
 .bubbles-small > g {

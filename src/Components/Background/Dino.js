@@ -1,5 +1,6 @@
 import React from 'react';
 import { DinoImages } from './DinoImages';
+import './Dinos.css'
 
 export default function Dino(props) {
   let animS = (Math.random() * (30.5 - 20) + 20) + (props.num % 4) + .6;
@@ -25,8 +26,13 @@ export default function Dino(props) {
         style={{
           transform: `translateX(${transX}px)`,
         }}
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        preserveAspectRatio="none"
       >
-        <image href={dinoSrc()}
+        <image xlinkHref={dinoSrc()} href={dinoSrc()} alt="dinoImages"
+        height="50px"
+        width="50px"
         />
         
       </g>
