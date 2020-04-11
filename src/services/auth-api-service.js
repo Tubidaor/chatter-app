@@ -41,6 +41,7 @@ const AuthApiService = {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Access-Control-Allow-Origin':'*',
       },
       body: JSON.stringify(word),
     })
@@ -57,6 +58,7 @@ const AuthApiService = {
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Access-Control-Allow-Origin':'*',
       },
       body: JSON.stringify(newChild),
     }).then(res => 
