@@ -18,7 +18,8 @@ export default class NewRugratForm extends Component {
       gender: gender.value,
       birthdate: birthdate.value,
     }
-    AuthApiService.addChild(newChild)
+
+    AuthApiService.addChild(newChild, this.props.user_name)
 
     this.props.onAddSuccess()
 

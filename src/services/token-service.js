@@ -1,4 +1,5 @@
 import config from '../config'
+import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 
 const TokenService = {
   saveAuthToken(token) {
@@ -16,6 +17,15 @@ const TokenService = {
   makeBasicAuthToken(user_name, password) {
     return window.btoa(`${user_name}:${password}`)
   },
+  saveUserName(userName) {
+    window.sessionStorage.setItem(config.user_name, userName)
+  },
+  getUserName() {
+    return window.sessionStorage.getItem(config.user_name)
+  },
+  clearUserName() {
+    window.sessionStorage.removeItem(config.user_name)
+  }
 }
 
 export default TokenService

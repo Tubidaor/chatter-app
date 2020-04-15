@@ -20,7 +20,7 @@ export default class UsersPage extends Component {
     WordsService.getDataByUser(userName)
       .then(data => this.context.updateData(data))
 
-    WordsService.getChildrenByUser()
+    WordsService.getChildrenByUser(userName)
       .then(data => this.context.updateChildren(data))
   }
 

@@ -15,7 +15,7 @@ export default class Header extends Component {
   handleLogoutClick = () => {
     TokenService.clearAuthToken();
     this.context.updateLogin(true);
-    this.context.updateUser('')
+    TokenService.clearUserName()
   }
 
   renderLogoutNav() {
@@ -62,10 +62,10 @@ export default class Header extends Component {
   }
 
   renderChatterUser() {
-    const userName = this.context.state.user_name
+  
     return (
       <span>
-          <Link to={`/words/${userName}`}>
+          <Link to={`/words/${TokenService.getUserName()}`}>
             <FontAwesomeIcon icon={faComments}/>
             {" "}
             Chatter

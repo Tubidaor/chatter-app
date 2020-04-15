@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewRugratForm from '../../Components/NewRugratForm/NewRugratForm';
 import ChatterContext from '../../ChatterContext';
+import TokenService from '../../services/token-service';
 
 export default class NewRugratPage extends Component {
   static contextType = ChatterContext
@@ -12,16 +13,18 @@ export default class NewRugratPage extends Component {
   }
 
   handleAddSuccess = () => {
+    const userName = TokenService.getUserName()
     const { location, history } = this.props
-    const userName = this.context.state.user_name
     const destination = (location.state || {}).from || `/words/${userName}`
     history.push(destination)
   }
 
   render() {
+    const userName = this.context.state.user_name
     return (
       <section className='AddChildPageSection'>
         <NewRugratForm onAddSuccess={this.handleAddSuccess}
+         user_name={userName}
         />
       </section>
     )

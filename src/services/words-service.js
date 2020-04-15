@@ -20,8 +20,8 @@ const WordsService = {
           : res.json()
       )
   },
-  getChildrenByUser() {
-    const childrenUrl = `${config.API_ENDPOINT}/children`
+  getChildrenByUser(user_name) {
+    const childrenUrl = `${config.API_ENDPOINT}/children/${user_name}`
     return fetch(childrenUrl, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,

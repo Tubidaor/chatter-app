@@ -33,10 +33,10 @@ const AuthApiService = {
     )
   },
 
-  async addWord(word, setError) {
+  async addWord(word) {
     
     
-    return fetch(`${config.API_ENDPOINT}/words/`, {
+    return fetch(`${config.API_ENDPOINT}/words`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -46,13 +46,13 @@ const AuthApiService = {
     })
       .then(res =>
         (!res.ok)
-          ? res.json().then(e => setError(e.error))
-          : res.json().then(word => setError(`The word, '${word.words}', has been added.`))
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
       )
   },
 
-  async addChild(newChild) {
-    return fetch(`${config.API_ENDPOINT}/children`, {
+  async addChild(newChild, user_name) {
+    return fetch(`${config.API_ENDPOINT}/children/${user_name}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

@@ -11,6 +11,10 @@ import './WordForm.css';
 export default class WordForm extends Component {
   static contextType = ChatterContext;
 
+  state = {
+    status: null,
+  }
+
   handleWordSubmit = (event) => {
     event.preventDefault()
     const { newWord, childName } = event.target
@@ -18,7 +22,9 @@ export default class WordForm extends Component {
       words: newWord.value,
       child_id: childName.value
     }
-    AuthApiService.addWord(word, this.context.setError)
+    AuthApiService.addWord(word)
+      .then(res => this.setState({status: `The word "${res.words}" was been added`}))
+      .catch(res => this.setState({status: res.error}))
       
 
     const { user_name } = this.context.state
@@ -34,10 +40,14 @@ export default class WordForm extends Component {
   
   render() {
     const { children=[] } = this.props
-    const error = this.context.state.error
+    const status = this.state.status
+    
+    console.log(status)
+   
     return (
       <section className='wordFormSection'>
-        {this.context.state.error && <ErrorDisplay errors={error}/>}
+        {status && <ErrorDisplay error={status}/>}
+    
         <form className="wordForm" onSubmit={this.handleWordSubmit}>
         <fieldset>
             <legend>Enter a word</legend>

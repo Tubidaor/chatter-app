@@ -20,7 +20,6 @@ export default ChatterContext;
 export class ChatterProvider extends Component {
   state = {
     error: false,
-    user_name: '',
     loginError: true,
     mainPageData: [{
           "id": "Standard",
@@ -74,12 +73,6 @@ export class ChatterProvider extends Component {
 
   clearError = () => {
     this.setState({ error: null })
-  }
-
-  updateUser = (userName) => {
-    this.setState({
-      user_name: userName,
-    })
   }
 
   updateData = (data) => {
