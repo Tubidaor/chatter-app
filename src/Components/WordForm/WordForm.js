@@ -18,8 +18,9 @@ export default class WordForm extends Component {
   handleWordSubmit = (event) => {
     event.preventDefault()
     const { newWord, childName } = event.target
+    const wordSubmitted = newWord.value.charAt(0).toUpperCase() + newWord.value.slice(1)
     const word = {
-      words: newWord.value,
+      words: wordSubmitted,
       child_id: childName.value
     }
     AuthApiService.addWord(word)
@@ -42,8 +43,6 @@ export default class WordForm extends Component {
     const { children=[] } = this.props
     const status = this.state.status
     
-    console.log(status)
-   
     return (
       <section className='wordFormSection'>
         {status && <ErrorDisplay error={status}/>}

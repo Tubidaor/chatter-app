@@ -24,7 +24,7 @@ export default class NewRugratPage extends Component {
     return (
       <section className='AddChildPageSection'>
         <NewRugratForm onAddSuccess={this.handleAddSuccess}
-         user_name={userName}
+          user_name={userName}
         />
       </section>
     )

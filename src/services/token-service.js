@@ -1,5 +1,5 @@
 import config from '../config'
-import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
+
 
 const TokenService = {
   saveAuthToken(token) {

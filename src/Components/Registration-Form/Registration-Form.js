@@ -6,30 +6,34 @@ import ErrorsDisplay from '../ErrorsDisplay/ErrorsDisplay';
 
 export default class RegistrationForm extends Component {
   
-  state = { error: null }
+  state = {
+    error: null,
+    user: null,
+  }
 
-  updateError = (error) => {
-    this.setState({error: error})
-  } 
-
+  
   handleRegSubmit = (event) => {
     event.preventDefault()
     const { email, first_name, last_name, user_name, password, confirm  } = event.target
     if(password.value !== confirm.value) {
       this.setState({error: 'Passwords do not match'})
     }
+    const firstNameSubmitted = first_name.value.charAt(0).toUpperCase() + first_name.value.slice(1)
+    const lastNameSubmitted = last_name.value.charAt(0).toUpperCase() + last_name.value.slice(1)
     const user = {
       email: email.value,
-      first_name: first_name.value,
-      last_name: last_name.value,
+      first_name: firstNameSubmitted,
+      last_name: lastNameSubmitted,
       user_name: user_name.value,
       password: password.value,
 
     }
 
-    AuthApiService.postUser(user, this.updateError)
-      
-    this.state.error === false && this.props.handleSuccessfulReg()
+    AuthApiService.postUser(user)
+      .then(res => this.setState({user: res}))
+      .catch(res => this.setState({error: res.error}))
+    
+    this.state.user && this.props.handleSuccessfulReg()
 
   }
   render() {
@@ -52,10 +56,10 @@ export default class RegistrationForm extends Component {
             <input name='user_name' type="text" placeholder="AliceinWonderland"/>
             <br/>
             <label>Password:</label>
-            <input name='password' type="text" placeholder="**********"/>
+            <input name='password' type="password" placeholder="**********"/>
             <br/>
             <label>Confirm:</label>
-            <input name='confirm' type="text" placeholder="**********"/>
+            <input name='confirm' type="password" placeholder="**********"/>
             <br/>
             <button type='submit'>Submit</button>
           </fieldset>

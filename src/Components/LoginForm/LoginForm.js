@@ -48,7 +48,7 @@ export default class Login extends Component {
             <input name='userName' type="text" placeholder="Alice"/>
             <br/>
             <label>Password:</label>
-            <input name='password' type="text" placeholder="**********"/>
+            <input name='password' type="password" placeholder="**********"/>
             <button type='submit'>Submit</button>
           </fieldset>
         </form>
