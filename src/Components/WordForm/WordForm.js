@@ -25,7 +25,7 @@ export default class WordForm extends Component {
       child_id: childName.value
     }
     AuthApiService.addWord(word)
-      .then(res => this.setState({status: `The word "${res.words}" was been added`}))
+      .then(res => this.setState({status: `The word "${res.words}" has been added`}))
       .catch(res => this.setState({status: res.error}))
       
 
