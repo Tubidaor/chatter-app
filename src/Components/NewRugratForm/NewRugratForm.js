@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import './NewRugratForm.css'
+import ErrorDisplay from '../ErrorsDisplay/ErrorsDisplay';
+import WordsService from '../../services/words-service';
+import ChatterContext from '../../ChatterContext';
 
 
 
 export default class NewRugratForm extends Component {
+  static contextType = ChatterContext
 
-  capitalizeWord(word) {
-    return 
+  state = {
+    error: null,
   }
+
+
   handleNewChildSubmit = (event) => {
     event.preventDefault()
     const { name_, gender, birthdate } = event.target
@@ -18,15 +24,20 @@ export default class NewRugratForm extends Component {
       gender: gender.value,
       birthdate: birthdate.value,
     }
-
     AuthApiService.addChild(newChild, this.props.user_name)
+      .then(res => {
+        WordsService.getChildrenByUser(this.props.user_name)
+          .then(data => this.context.updateChildren(data))
 
-    this.props.onAddSuccess()
-
+        this.props.onAddSuccess()
+      })
+      .catch(res => this.setState({error: res.error}))
+    
   }
   render() {
     return (
       <div>
+        <div>{this.state.error && <ErrorDisplay error={this.state.error}/>}</div>
         <form onSubmit={this.handleNewChildSubmit}>
           <fieldset>
             <legend>Add New Rugrat</legend>

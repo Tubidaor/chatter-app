@@ -20,6 +20,7 @@ const WordsService = {
           : res.json()
       )
   },
+  
   getChildrenByUser(user_name) {
     const childrenUrl = `${config.API_ENDPOINT}/children/${user_name}`
     return fetch(childrenUrl, {
@@ -33,6 +34,7 @@ const WordsService = {
           : res.json()
       )
   },
+
   arrangeDataForGraph(data, standardData) {
     data = data.filter(value => Object.keys(value).length !== 0)
     let newData = []
@@ -71,13 +73,12 @@ makeArrayForChildData(data) {
   let gData = [{"x":0, "y":0},...graphData]
   const preFixData = [...graphData,{"x":0, "y":0}]
   const unique = []
-  let i
-  for(i=0; i < preFixData.length; i++) {
+
+  for(let i = 0; i < preFixData.length; i++) {
       if(preFixData[i].x !== gData[i].x) {
         unique.push(gData[i])
       }
-     
-    }
+  }
   
   return unique
 },

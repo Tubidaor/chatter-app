@@ -4,6 +4,7 @@ import AuthApiService from '../../services/auth-api-service';
 import WordsService from '../../services/words-service';
 import ErrorDisplay from '../../Components/ErrorsDisplay/ErrorsDisplay'
 import './WordForm.css';
+import TokenService from '../../services/token-service';
 
 
 
@@ -28,7 +29,7 @@ export default class WordForm extends Component {
       .catch(res => this.setState({status: res.error}))
       
 
-    const { user_name } = this.context.state
+    const user_name = TokenService.getUserName()
   
     WordsService.getDataByUser(user_name)
       .then(data => this.context.updateData(data))

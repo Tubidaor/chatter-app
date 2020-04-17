@@ -19,27 +19,15 @@
   font-size: .8rem;
 }
 
-/* .navLinks {
-  text-decoration: none;
-  color: red;
-} */
-
-
 a { 
   text-decoration: none;
   color: black;
 }
 
-/* a:visited  {
-  text-decoration: none;
-  color: blue;
-} */
 a:hover  {
   text-decoration: none;
   color: red;
 }
-
-
 
 @media screen and (min-width: 520px) {
   .Header {

@@ -8,7 +8,6 @@ export default class RegistrationForm extends Component {
   
   state = {
     error: null,
-    user: null,
   }
 
   
@@ -30,10 +29,12 @@ export default class RegistrationForm extends Component {
     }
 
     AuthApiService.postUser(user)
-      .then(res => this.setState({user: res}))
+      .then(res => {
+        this.props.handleSuccessfulReg()
+      })
       .catch(res => this.setState({error: res.error}))
     
-    this.state.user && this.props.handleSuccessfulReg()
+    
 
   }
   render() {

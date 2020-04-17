@@ -12,8 +12,6 @@ export default class UsersPage extends Component {
 
   static contextType =  ChatterContext
   
-
-  
   componentDidMount() {
     const { userName } = this.props.match.params
   
@@ -23,9 +21,6 @@ export default class UsersPage extends Component {
     WordsService.getChildrenByUser(userName)
       .then(data => this.context.updateChildren(data))
   }
-
-  
-  
 
   render() {
     const { allUserData, childrenData } = this.context.state
